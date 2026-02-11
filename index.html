@@ -14,15 +14,12 @@
         }
 
         .container {
-            text-align: center;
             background: white;
             padding: 40px;
             border-radius: 25px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            position: relative;
-            width: 400px;
-            height: 350px;
-            overflow: hidden;
+            width: 420px;
+            text-align: center;
         }
 
         h1 {
@@ -34,9 +31,9 @@
             font-size: 80px;
         }
 
-        .buttons {
+        .button-area {
             position: relative;
-            height: 120px;
+            height: 140px;
             margin-top: 20px;
         }
 
@@ -63,14 +60,14 @@
             background-color: #cccccc;
             color: black;
             position: absolute;
-            left: 220px;
-            top: 0;
+            left: 250px;
+            top: 20px;
         }
 
         #message {
             font-size: 18px;
             color: #ff4d88;
-            margin-top: 15px;
+            margin-top: 20px;
             display: none;
         }
     </style>
@@ -81,7 +78,7 @@
     <div class="panda">🐼💗</div>
     <h1>Will You Be My Jaadi ku Eththa Moodi? 🐼❤️</h1>
 
-    <div class="buttons">
+    <div class="button-area" id="buttonArea">
         <button id="yesBtn">Yes 🥰</button>
         <button id="noBtn">No 🙈</button>
     </div>
@@ -97,11 +94,12 @@
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
     const message = document.getElementById("message");
-    const container = document.querySelector(".buttons");
+    const buttonArea = document.getElementById("buttonArea");
 
     noBtn.addEventListener("mouseover", function() {
-        const maxX = container.clientWidth - noBtn.offsetWidth;
-        const maxY = container.clientHeight - noBtn.offsetHeight;
+
+        const maxX = buttonArea.clientWidth - noBtn.offsetWidth;
+        const maxY = buttonArea.clientHeight - noBtn.offsetHeight;
 
         const randomX = Math.random() * maxX;
         const randomY = Math.random() * maxY;
@@ -112,6 +110,7 @@
 
     yesBtn.addEventListener("click", function() {
         message.style.display = "block";
+        noBtn.style.display = "none"; // hide no after yes
     });
 </script>
 
