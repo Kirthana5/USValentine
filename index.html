@@ -11,7 +11,6 @@
             justify-content: center;
             align-items: center;
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            overflow: hidden;
         }
 
         .container {
@@ -21,6 +20,9 @@
             border-radius: 25px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
             position: relative;
+            width: 400px;
+            height: 350px;
+            overflow: hidden;
         }
 
         h1 {
@@ -32,13 +34,18 @@
             font-size: 80px;
         }
 
+        .buttons {
+            position: relative;
+            height: 120px;
+            margin-top: 20px;
+        }
+
         button {
             padding: 12px 25px;
             font-size: 18px;
             border: none;
             border-radius: 12px;
             cursor: pointer;
-            margin: 15px;
             transition: 0.3s;
         }
 
@@ -56,12 +63,14 @@
             background-color: #cccccc;
             color: black;
             position: absolute;
+            left: 220px;
+            top: 0;
         }
 
         #message {
-            font-size: 20px;
+            font-size: 18px;
             color: #ff4d88;
-            margin-top: 20px;
+            margin-top: 15px;
             display: none;
         }
     </style>
@@ -71,12 +80,16 @@
 <div class="container">
     <div class="panda">🐼💗</div>
     <h1>Will You Be My Jaadi ku Eththa Moodi? 🐼❤️</h1>
-    <button id="yesBtn">Yes 🥰</button>
-    <button id="noBtn">No 🙈</button>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes 🥰</button>
+        <button id="noBtn">No 🙈</button>
+    </div>
+
     <div id="message">
-        Yaaayyy!! 🐼💕  
-        Ur Gundu is Happyyyyy Noww...!!
-        Love you da Kattappa🥰❤️
+        Yaaayyy!! 🐼💕<br>
+        Ur Gundu is Happyyyyy Noww...!!<br>
+        Love you da Kattappa 🥰❤️
     </div>
 </div>
 
@@ -84,12 +97,17 @@
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
     const message = document.getElementById("message");
+    const container = document.querySelector(".buttons");
 
     noBtn.addEventListener("mouseover", function() {
-        const x = Math.random() * (window.innerWidth - 120);
-        const y = Math.random() * (window.innerHeight - 60);
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
+        const maxX = container.clientWidth - noBtn.offsetWidth;
+        const maxY = container.clientHeight - noBtn.offsetHeight;
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
     });
 
     yesBtn.addEventListener("click", function() {
