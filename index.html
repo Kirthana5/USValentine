@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panda Valentine 🐼❤️</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #fceff9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        h1 {
+            color: #ff4d88;
+            margin-bottom: 20px;
+        }
+
+        .panda {
+            font-size: 80px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            margin: 15px;
+            transition: 0.3s;
+        }
+
+        #yesBtn {
+            background-color: #ff66a3;
+            color: white;
+        }
+
+        #yesBtn:hover {
+            background-color: #ff3385;
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background-color: #cccccc;
+            color: black;
+            position: absolute;
+        }
+
+        #message {
+            font-size: 20px;
+            color: #ff4d88;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="panda">🐼💗</div>
+    <h1>Will You Be My Jaadi ku Eththa Moodi? 🐼❤️</h1>
+    <button id="yesBtn">Yes 🥰</button>
+    <button id="noBtn">No 🙈</button>
+    <div id="message">
+        Yaaayyy!! 🐼💕  
+        Ur Gundu is Happyyyyy Noww...!!
+        Love you da Kattappa🥰❤️
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const message = document.getElementById("message");
+
+    noBtn.addEventListener("mouseover", function() {
+        const x = Math.random() * (window.innerWidth - 120);
+        const y = Math.random() * (window.innerHeight - 60);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    yesBtn.addEventListener("click", function() {
+        message.style.display = "block";
+    });
+</script>
+
+</body>
+</html>
